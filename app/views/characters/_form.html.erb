@@ -1,0 +1,64 @@
+<%= form_with model: @character do |form| %>
+    <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+        <% character.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :race %>
+      <%= form.select :race, ["Human", "Dwarf", "Elf"] %>
+    </div>
+
+    <div class="field">
+    <%= form.label :role %>
+    <%= form.select :role, ["Barbarian", "Fighter", "Druid", "Wizard", "Sorcerer", "Warlock", "Ranger", "Paladin", "Monk" ] %>
+    </div>
+
+    <div class="field">
+    <%= form.label :strength %>
+    <%= form.number_field :strength, in: 1..20, step: 1 %>
+    </div>
+
+    <div class="field">
+    <%= form.label :dexterity %>
+    <%= form.number_field :dexterity, in: 1..20, step: 1 %>
+    </div>
+
+    <div class="field">
+    <%= form.label :constitution %>
+    <%= form.number_field :constitution, in: 1..20, step: 1 %>
+    </div>
+
+    <div class="field">
+    <%= form.label :intelligence %>
+    <%= form.number_field :intelligence, in: 1..20, step: 1 %>
+    </div>
+
+    <div class="field">
+    <%= form.label :wisdom %>
+    <%= form.number_field :wisdom, in: 1..20, step: 1 %>
+    </div>
+
+    <div class="field">
+    <%= form.label :charisma %>
+    <%= form.number_field :charisma, in: 1..20, step: 1 %>
+    </div>
+
+    
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
