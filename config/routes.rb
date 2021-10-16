@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root  "characters#index"
+  
   get '/characters', to: 'characters#index', as: 'characters'
 
   get '/characters/new', to: 'characters#new', as: 'new_character'
